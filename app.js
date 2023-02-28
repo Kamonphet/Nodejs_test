@@ -5,8 +5,8 @@ const morgan = require('morgan');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 4000;
-const profiles = require('./data/profiles.json');
-const profilesRouting = express.Router(); 
+const profilesRouting = require("./src/router/profileRouter"); 
+
 
 app.use(morgan('combined'));
 app.use(express.static(path.join(__dirname,"/public/")));
@@ -14,16 +14,7 @@ app.use(express.static(path.join(__dirname,"/public/")));
 app.set("views","./src/views");
 app.set("view engine", "ejs");
 
-profilesRouting.route("/").get((req,res)=>{
-    res.render("Profiles",
-        profiles,
 
-    );
-})
-
-profilesRouting.route("/1").get((req,res)=>{
-    res.send("Wellcome to profile");
-})
 
 app.use("/profiles",profilesRouting);
 

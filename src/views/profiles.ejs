@@ -9,7 +9,9 @@
 <body>
     <h1>Wellcome!!!</h1>
     <% profiles.map((profile)=>{ %>
-        <h4>ชื่อ: <%=profile.name %> <%=profile.surname %></h4>
+        <h4>
+            <a href="/profiles/<%=profile.id%>">ชื่อ: <%=profile.name %> <%=profile.surname %></a>
+        </h4>
         <p>การศึกษา: <%=profile.Educate %></p>
     <%})%>
 </body>
